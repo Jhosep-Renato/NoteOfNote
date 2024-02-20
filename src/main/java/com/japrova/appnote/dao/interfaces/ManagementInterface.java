@@ -12,6 +12,6 @@ public interface ManagementInterface {
 
     boolean deleteTask(Integer idTask);
 
-
+    Integer getTaskManager(Integer idUser);
 
 }

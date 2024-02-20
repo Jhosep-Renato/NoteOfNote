@@ -10,8 +10,13 @@ public class ManagementTaskController {
     public List<Task> getTasks(Integer idTaskManager) {
 
         ManagementDaoImpl managementDao = new ManagementDaoImpl();
-        List<Task> listTask = managementDao.getTasks(idTaskManager);
 
-        return listTask;
+        return managementDao.getTasks(idTaskManager);
+    }
+
+    public boolean registerTask(Task task) {
+
+        ManagementDaoImpl managementDao = new ManagementDaoImpl();
+        return managementDao.registerTask(task);
     }
 }

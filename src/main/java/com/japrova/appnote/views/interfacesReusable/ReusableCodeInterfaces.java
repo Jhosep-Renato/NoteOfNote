@@ -27,7 +27,7 @@ public interface ReusableCodeInterfaces {
 
         if(checkFields(nickname, password) && !repeatPassword.isEmpty()) {
 
-            validation = Objects.equals(password, repeatPassword);
+            validation = password.equals(repeatPassword);
         }
         return validation;
     }

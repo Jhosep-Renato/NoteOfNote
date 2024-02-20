@@ -10,12 +10,12 @@ public class TaskManager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idTaskManager")
-    private int taskManagerId;
+    private Integer taskManagerId;
 
-    @Column(name = "user")
-    private User user;
+    @Column(name = "idUser")
+    private Integer idUser;
 
-    private static User userStatic;
+    private static Integer userStatic;
 
     public TaskManager() {
     }
@@ -28,19 +28,19 @@ public class TaskManager {
         this.taskManagerId = taskManagerId;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUser() {
+        return idUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
-    public static User getUserStatic() {
+    public static Integer getUserStatic() {
         return userStatic;
     }
 
-    public static void setUserStatic(User userStatic) {
+    public static void setUserStatic(Integer userStatic) {
         TaskManager.userStatic = userStatic;
     }
 }

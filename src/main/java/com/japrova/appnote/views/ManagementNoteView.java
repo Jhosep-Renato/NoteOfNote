@@ -24,9 +24,11 @@ public class ManagementNoteView extends JFrame implements ActionListener, Reusab
         setResizable(false);
         setLocationRelativeTo(null);
         initiateActions(this, Collections.singletonList(addNoteButton));
+
         ManagementTaskController managementTaskController = new ManagementTaskController();
-        managementTaskController.getTasks(TaskManager.getUserStatic().getId());
-        System.out.println("El id del TaskManager del usuario: " + TaskManager.getUserStatic().getId());
+        managementTaskController.getTasks(TaskManager.getUserStatic());
+
+        System.out.println("El id del TaskManager del usuario: " + TaskManager.getUserStatic());
     }
 
     @Override

@@ -1,17 +1,15 @@
 package com.japrova.appnote.dao;
 
-import com.japrova.appnote.dao.interfaces.UserInterface;
+import com.japrova.appnote.dao.interfaces.LogRegInterface;
 import com.japrova.appnote.models.TaskManager;
 import com.japrova.appnote.models.User;
 import com.japrova.appnote.persistence.PersistenceBd;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
-
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
-public class LogRegDaoImpl implements UserInterface {
+public class LogRegDaoImpl implements LogRegInterface {
 
     private EntityManager entityManager;
 
@@ -24,10 +22,16 @@ public class LogRegDaoImpl implements UserInterface {
     public boolean createUser(User user) {
 
         try {
+            TaskManager taskManager = new TaskManager();
+
             entityManager.getTransaction().begin();
             entityManager.persist(user);
-            entityManager.persist(user);
+
+            taskManager.setUser(user.getId());
+            entityManager.persist(taskManager);
+
             entityManager.getTransaction().commit();
+
             return true;
         } catch (Exception e) {
             if (entityManager.getTransaction().isActive()) {
@@ -58,18 +62,4 @@ public class LogRegDaoImpl implements UserInterface {
         return Optional.ofNullable(userOptional);
     }
 
-    @Override
-    public TaskManager getUser(User user) {
-
-        TaskManager taskManager = null;
-
-        try {
-            entityManager.find(Clas);
-        } catch () {
-
-        } finally {
-            entityManager.close();
-        }
-        return null;
-    }
 }
